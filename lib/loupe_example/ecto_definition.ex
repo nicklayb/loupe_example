@@ -1,6 +1,8 @@
 defmodule LoupeExample.EctoDefinition do
   @behaviour Loupe.Ecto.Definition
 
+  import Ecto.Query
+
   alias LoupeExample.EctoDefinition
   alias LoupeExample.Repo
   alias LoupeExample.Schemas.Driver
@@ -30,7 +32,9 @@ defmodule LoupeExample.EctoDefinition do
 
   def query(query, context \\ %{}) do
     with {:ok, query, _context} <- Loupe.Ecto.build_query(query, EctoDefinition, context) do
-      Repo.all(query)
+      query
+      |> distinct([q], q.id)
+      |> Repo.all()
     end
   end
 end

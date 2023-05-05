@@ -16,4 +16,30 @@ alias LoupeExample.EctoDefinition, as: Def
 Def.query(~s|get Driver where driver.positions.position = 1|)
 ```
 
-The above query should return every driver that finished first in the 2023 Formula 1 season (as of May 5th).
+The above query 
+
+### Query examples
+
+#### All teams where a driver had a podium (finished P3 or higher)
+
+```
+get all Team where drivers.positions.position <= 3
+```
+
+#### All driver from Aston Martin
+
+```
+get all Driver where team.name like "Aston Martin"
+```
+
+#### All tracks where Fernando Alonso finished 3rd
+
+```
+get all Track where races.positions.position = 3 and races.positions.driver.abbreviation = "ALO"
+```
+
+#### All tracks before April
+
+```
+get all Track where races.date < "2023-04-01"
+```
