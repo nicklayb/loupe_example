@@ -14,6 +14,8 @@ defmodule LoupeExample.Schemas.Driver do
     belongs_to(:team, Team)
 
     has_many(:positions, RacePosition)
+
+    has_many(:races, through: [:positions, :race])
   end
 
   @required ~w(first_name last_name number abbreviation)a
