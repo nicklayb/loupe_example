@@ -1,18 +1,19 @@
 # LoupeExample
 
-To start your Phoenix server:
+App that includes a couple of sample data to test and play around with [Loupe](https://github.com/nicklayb/loupe).
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Setup
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+1. Boot the database `docker-compose up -d`.
+2. Initialize the database `mix ecto.reset`.
+3. Start the server and play around `iex -S mix phx.server`.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+You can then attempt to run query with:
 
-## Learn more
+```elixir
+alias LoupeExample.EctoDefinition, as: Def
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Def.query(~s|get Driver where driver.positions.position = 1|)
+```
+
+The above query should return every driver that finished first in the 2023 Formula 1 season (as of May 5th).
