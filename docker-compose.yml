@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  db:
+    image: postgres:14.2
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT-5432}:5432"
+    environment:
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=loupe_example_dev"
+volumes:
+  db:
