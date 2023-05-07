@@ -1,0 +1,28 @@
+<div class="flex flex-col px-8 pt-8">
+  <form phx-submit="query" class="flex-1">
+    <div class="flex flex-1">
+      <input type="text" class="w-full font-mono" name="input" value={@input} />
+    </div>
+    <div class="flex justify-end pt-2">
+      <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded">Query</button>
+    </div>
+  </form>
+</div>
+<div class="px-8 pt-8">
+  <%= case @result do %>
+    <% :loading -> %>
+      Loading...
+
+    <% {:ok, []} -> %>
+      No results
+
+    <% {:error, %ArgumentError{}} -> %>
+      Syntax Error
+
+    <% {:error, error} -> %>
+      Error: <%= inspect(error) %>
+
+      <% {:ok, results} -> %>
+        <LoupeLive.render result={results} definition={LoupeDefinition} />
+  <% end %>
+</div>

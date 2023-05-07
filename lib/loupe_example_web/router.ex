@@ -1,11 +1,18 @@
 defmodule LoupeExampleWeb.Router do
-  use LoupeExampleWeb, :router
+  use Phoenix.Router, helpers: false
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  import Plug.Conn
+  import Phoenix.LiveView.Router
+
+  pipeline(:live_views) do
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, {LoupeExampleWeb.Layouts, :root})
+    plug(:protect_from_forgery)
   end
 
-  scope "/api", LoupeExampleWeb do
-    pipe_through :api
+  scope("/", LoupeExampleWeb) do
+    pipe_through(:live_views)
+    live("/", HomeLive)
   end
 end

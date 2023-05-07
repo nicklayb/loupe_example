@@ -32,9 +32,12 @@ defmodule LoupeExample.EctoDefinition do
 
   def query(query, context \\ %{}) do
     with {:ok, query, _context} <- Loupe.Ecto.build_query(query, EctoDefinition, context) do
-      query
-      |> distinct([q], q.id)
-      |> Repo.all()
+      results = 
+        query
+        |> distinct([q], q.id)
+        |> Repo.all()
+
+      {:ok, results}
     end
   end
 end

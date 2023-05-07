@@ -8,11 +8,13 @@ defmodule LoupeExampleWeb.Endpoint do
     same_site: "Lax"
   ]
 
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+
   plug Plug.Static,
     at: "/",
     from: :loupe_example,
     gzip: false,
-    only: LoupeExampleWeb.static_paths()
+    only: LoupeExampleWeb.Routes.static_paths()
 
   if code_reloading? do
     plug Phoenix.CodeReloader

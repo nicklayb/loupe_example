@@ -34,6 +34,7 @@ defmodule LoupeExample.MixProject do
     [
       {:phoenix, "~> 1.7.2"},
       {:phoenix_ecto, "~> 4.4"},
+      {:phoenix_live_view, "~> 0.18"},
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
@@ -41,7 +42,7 @@ defmodule LoupeExample.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:loupe, "~> 0.4"}
+      {:loupe, "~> 0.5"}
     ]
   end
 

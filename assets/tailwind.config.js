@@ -9,7 +9,9 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/*_web.ex",
-    "../lib/*_web/**/*.*ex"
+    "../lib/*_web/**/*.*ex",
+    "../lib/*_web/*.*ex",
+    "../deps/loupe/lib/phoenix_live_view/live_component.ex"
   ],
   theme: {
     extend: {

@@ -14,7 +14,6 @@ config :loupe_example,
 config :loupe_example, LoupeExampleWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [json: LoupeExampleWeb.ErrorJSON],
     layout: false
   ],
   pubsub_server: LoupeExample.PubSub,
