@@ -1,3 +1,56 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.loupe-root .loupe-record-count {
+    color: #777;
+}
+
+.loupe-root .loupe-association-not-loaded {
+    font-weight: bold;
+}
+
+.loupe-root .loupe-struct-name {
+    margin-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.loupe-root .loupe-struct-value {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(220, 220, 220, 0.3);
+}
+
+.loupe-root .loupe-struct-value-table {
+    width: 100%;
+}
+
+.loupe-root .loupe-struct-field-name {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.loupe-root .loupe-struct-field-value {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.loupe-root .loupe-primitive-field-name {
+    padding-left: 1rem;
+}
+
+.loupe-root .loupe-expand-minus, .loupe-root .loupe-expand-plus {
+    font-family: monospace;
+    font-weight: bold;
+}
