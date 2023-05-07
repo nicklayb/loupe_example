@@ -38,13 +38,16 @@ defmodule LoupeExampleWeb.HomeLive do
   end
 
   def handle_info({:query, query}, socket) do
-    result = LoupeDefinition.query(query)
+    with {:ok, result} <- query(query) do
+      socket = 
+        socket
+        |> assign(:result, result)
 
-    socket = 
-      socket
-      |> assign(:result, result)
-
-    {:noreply, socket}
+      {:noreply, socket}
+    else
+      _ ->
+        {:noreply, socket}
+    end
   end
 
   defp apply_action("expand", key, record) do
@@ -58,5 +61,12 @@ defmodule LoupeExampleWeb.HomeLive do
 
   defp dispatch_query(input) do
     send(self(), {:query, input})
+  end
+
+  defp query(query) do
+    {:ok, LoupeDefinition.query(query)}
+  rescue
+    _ ->
+      :error
   end
 end

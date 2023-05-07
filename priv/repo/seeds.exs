@@ -86,7 +86,8 @@ tracks = %{
   bahrain: %{name: "Gulf Air Bahrain", country: "Bahrain"},
   saudi: %{name: "STC Saudi Arabian", country: "Saudi Arabia"},
   australia: %{name: "Rolex Autralian", country: "Australia"},
-  baku: %{name: "Azerbaijan", country: "Azerbaijan"}
+  baku: %{name: "Azerbaijan", country: "Azerbaijan"},
+  miami: %{name: "Crypto.com Miami", country: "United States"}
 }
 
 tracks = Enum.reduce(tracks, %{}, fn {key, track}, acc ->
@@ -120,6 +121,11 @@ races = [
     track: :baku,
     date: "2023-04-30",
     positions: ["PER", "VER", "LEC", "ALO", "SAI", "HAM", "STR", "RUS", "NOR", "TSU", "PIA", "ALB", "MAG", "GAS", "OCO", "SAR", "HUL", "BOT", "ZHO", "DEV"]
+  },
+  %{
+    track: :miami,
+    date: "2023-05-07",
+    positions: ["VER", "PER", "ALO", "RUS", "SAI", "HAM", "LEC", "GAS", "OCO", "MAG", "TSU", "STR", "BOT", "ALB", "HUL", "ZHO", "NOR", "DEV", "PIA", "SAR"]
   }
 ]
 
