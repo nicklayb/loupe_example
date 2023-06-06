@@ -23,6 +23,6 @@
       Error: <%= inspect(error) %>
 
       <% {:ok, results} -> %>
-        <LoupeLive.render result={results} definition={LoupeDefinition} />
+        <LoupeLive.render result={results} definition={LoupeDefinition} renderer={LoupeRenderer} />
   <% end %>
 </div>

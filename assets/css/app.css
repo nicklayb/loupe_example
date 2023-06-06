@@ -54,3 +54,8 @@
     font-family: monospace;
     font-weight: bold;
 }
+
+.loupe-root .loupe-struct-link, .loupe-root .loupe-struct-field-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
