@@ -17,6 +17,15 @@ defmodule LoupeExample.Renderer do
   def struct_link(_, _, _), do: nil
 
   @impl Loupe.PhoenixLiveView.Renderer
+  def render_type(binary, _) when is_binary(binary) do
+    assigns = %{binary: "String(#{binary})"}
+
+    {:ok,
+     ~H"""
+     <em><%= @binary %></em>
+     """}
+  end
+
   def render_type(_, _) do
     :ignore
   end
